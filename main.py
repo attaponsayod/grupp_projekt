@@ -30,7 +30,7 @@ def get_weather_data(city):
         print("Error fetching weather data:", e)
         return None
 
-# Function to generate HTML content with weather data table
+
 def generate_html(weather_data):
     html_content = f"""
     <!DOCTYPE html>
@@ -59,14 +59,18 @@ def generate_html(weather_data):
     </body>
     </html>
     """
-    # Write the content to an HTML file
+    # Spara innehållet i HTML-filen
     with open("webb_app.html", "w") as file:
         file.write(html_content)
-    print("HTML file generated with weather data.")
+    print("HTML-fil genererad med väderdata.")
 
-# Test the functions
+
+
+# Testa funktionen
 city = "Stockholm"
 weather_data = get_weather_data(city)
 if weather_data:
     weather_data["temperature"] = f"{weather_data['temperature']} °C"
     generate_html(weather_data)
+
+    
