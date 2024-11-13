@@ -5,7 +5,7 @@ WORKDIR /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
-EXPOSE 443
+EXPOSE 5000
 
-# Start a simple HTTP server to serve static files
-CMD ["python", "-m", "http.server", "443"]
+# Starta Flask-applikationen
+CMD ["python", "app.py"]
