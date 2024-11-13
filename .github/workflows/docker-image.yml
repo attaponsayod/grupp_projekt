@@ -1,0 +1,27 @@
+name: Attapon_Docker_Image_CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      
+    - name: Logga in på Docker Hub
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_ATTAPON_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_ATTAPON_PASSWORD }}
+      run: |
+        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+
+    - name: Bygg Docker-image
+      run: docker build . -t attaponsayod/attapon:${{ github.sha }}
+
+    - name: Pusha Docker-image
+      run: docker push attaponsayod/attapon:${{ github.sha }}
