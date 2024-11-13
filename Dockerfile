@@ -7,5 +7,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 EXPOSE 5000
 
-# Start Flask app
-CMD ["python", "app.py"]
+# Start a simple HTTP server to serve static files
+CMD ["python", "-m", "http.server", "5000"]
