@@ -70,7 +70,7 @@ def generate_html(weather_data):
 city = "Stockholm"
 weather_data = get_weather_data(city)
 if weather_data:
-    weather_data["temperature"] = f"{weather_data['temperature']} °C"
+    weather_data["temperature"] = f"{weather_data['temperature']}"
     generate_html(weather_data)
 
     
