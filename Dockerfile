@@ -5,7 +5,7 @@ WORKDIR /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
-EXPOSE 80
+EXPOSE 443
 
 # Start a simple HTTP server to serve static files
-CMD ["python", "-m", "http.server", "80"]
+CMD ["python", "-m", "http.server", "443"]
