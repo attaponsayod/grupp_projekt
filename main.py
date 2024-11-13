@@ -45,7 +45,7 @@ def generate_html(weather_data):
         <table border="1">
             <tr>
                 <th>City</th>
-                <th>Temperature (°C)</th>
+                <th>Temperature (C)</th>
                 <th>Humidity (%)</th>
                 <th>Description</th>
             </tr>
